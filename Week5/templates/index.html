@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 28 19:38:44 2023
+
+@author: terry
+"""
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="container">
+  <div class="login">
+	<h1>Predict House Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    
+      <select name= "Gender" required= "required">
+       <option value= "">Select Gender</option>
+       <option value= "1.0">Male</option>
+       <option value= "0.0">Female</option>
+      </select>
+      
+      <select name= "Married" required= "required">
+       <option value= "">Marrital Status</option>
+       <option value= "1.0">Yes</option>
+       <option value= "0.0">No</option>
+      </select>
+      
+       <select name= "Dependents" required= "required">
+        <option value= "">Select Number of Dependents</option>
+        <option value= "0.0">0</option>
+        <option value= "1.0">1</option>
+        <option value= "2.0">2</option>
+        <option value= "3.0">3+</option>
+       </select>
+      
+       <select name= "Education" required= "required">
+        <option value= "">Select Education</option>
+        <option value= "1.0">Graduate</option>
+        <option value= "0.0">Not Graduate</option>
+       </select>
+       
+        <select name= "Self_Employed" required= "required">
+         <option value= "">Select Self Employ</option>
+         <option value= "1.0">Yes</option>
+         <option value= "0.0">No</option>
+        </select>
+      
+		<input type="number" name="ApplicantIncome" placeholder="Applicant Income" required="required" />
+        <input type="number" name="CoapplicantIncome" placeholder="Coapplicant Income" required="required" />
+		<input type="number" name="LoanAmount" placeholder="Loan Amount" required="required" />
+		<input type="number" name="Loan_Amount_Term" placeholder="Loan Amount Term" required="required" />
+
+
+        <select name= "Credit_History" required= "required">
+         <option value= "">Select Credit History</option>
+         <option value= "1.0">1</option>
+         <option value= "0.0">0</option>
+        </select>
+        
+        <select name= "Property_Area" required= "required">
+         <option value= "">Select Property Area</option>
+         <option value= "1.0">Rural</option>
+         <option value= "0.5">Semiurban</option>
+         <option value= "0.0">Urban</option>
+        </select>
+         
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+  </div>
+ </div>
+</body>
+</html>
