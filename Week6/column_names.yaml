@@ -1,0 +1,9 @@
+- created_date
+- time
+- tweet_id
+- author_id
+- text
+- is_retweet
+- retweet_id
+- retweet_author_id
+- dateid
